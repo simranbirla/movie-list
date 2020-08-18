@@ -12,7 +12,7 @@ const useTrending = (name) => {
       setMovie(data.results);
     })(name);
   }, []);
-  console.log(movie);
+
   return movie;
 };
 
