@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { FavList } from "../context/Favour";
 
 const Favourite = () => {
-  return <div>Array of favourites movie</div>;
+  const { value, setValue } = useContext(FavList);
+  console.log(value);
+  return <div>Array of favourites movie:::{value}</div>;
 };
 
 export default Favourite;
