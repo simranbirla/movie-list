@@ -2,6 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const renderList = (list, setfunc, fav, type) => {
+  const onButton = (id) => {
+    setfunc([...fav, id]);
+    //console.log(fav);
+    localStorage.setItem(type, JSON.stringify([...fav, id]));
+    //console.log(localStorage.getItem(type));
+  };
+
   console.log(list);
   return list.map((item) => {
     return (
@@ -18,7 +25,7 @@ const renderList = (list, setfunc, fav, type) => {
           <p>{item.original_title || item.original_name}</p>
           <p>Release date:{item.first_air_date}</p>
           <p>Vote:{item.vote_average}</p>
-          <button onClick={() => setfunc([...fav, item.id])}>Favourite</button>
+          <button onClick={() => onButton(item.id)}>Favourite</button>
         </div>
       </div>
     );

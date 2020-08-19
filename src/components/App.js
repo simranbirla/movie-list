@@ -10,10 +10,15 @@ import Favourite from "./Favourite";
 import FavouriteTV from "./FavouriteTV";
 import { FavList } from "../context/Favour";
 import { FavTV } from "../context/Favour";
+import localStore from "./local";
 
 const App = () => {
-  const [value, setValue] = useState([]);
-  const [tv, setTV] = useState([]);
+  const val = localStore("movie");
+  //console.log("VAL", val);
+  const [value, setValue] = useState(val);
+  //console.log("AFVLIST", value);
+  const [tv, setTV] = useState(localStore("tv"));
+  console.log(tv);
   return (
     <div>
       <BrowserRouter>
