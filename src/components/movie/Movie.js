@@ -8,7 +8,7 @@ const renderMovie = (data) => {
         alt={data.title}
       />
       <h2>{data.title}</h2>
-      <a href={data.homepage} target="_blank">
+      <a href={data.homepage} target="_blank" rel="noopener noreferrer">
         Watch
       </a>
       <p>Release date:{data.release_date}</p>
@@ -24,7 +24,6 @@ const renderMovie = (data) => {
 };
 
 const Movie = (props) => {
-  console.log(props);
   const [movie, setMovie] = useState([]);
   console.log(movie);
   useEffect(() => {

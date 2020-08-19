@@ -11,7 +11,7 @@ const useTrending = (name) => {
       const data = await response.json();
       setMovie(data.results);
     })(name);
-  }, []);
+  }, [name]);
 
   return movie;
 };

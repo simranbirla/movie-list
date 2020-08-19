@@ -1,12 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const renderList = (list, setfunc, fav) => {
+const renderList = (list, setfunc, fav, type) => {
+  console.log(list);
   return list.map((item) => {
     return (
       <div key={item.id}>
         <div>
-          <Link to={`/movie/${item.id}`}>
+          <Link
+            to={type === "movie" ? `/movie/${item.id}` : `/tvshow/${item.id}`}
+          >
             <img
               src={`https://image.tmdb.org/t/p/w200${item.poster_path}`}
               alt={item.original_title}
