@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
 import { FavTV } from "../context/Favour";
+import _ from "lodash";
 
 const FavouriteTV = () => {
   const { tv } = useContext(FavTV);
   const [name, setName] = useState([]);
-  const urls = tv.map((show) => {
+  const tv_uniq = _.uniq(tv);
+  const urls = tv_uniq.map((show) => {
     return `https://api.themoviedb.org/3/tv/${show}?api_key=070fc4e51d03c72359b284a5773a3a25&language=en-US`;
   });
 
@@ -48,9 +50,16 @@ const FavouriteTV = () => {
     return;
   }, []);
 
-  console.log(name);
+  // console.log(name);
 
-  return <div>Array of favourites TV shows:::{renderFav(name[0])}</div>;
+  return (
+    <div>
+      Array of favourites TV shows:::
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)" }}>
+        {renderFav(name[0])}
+      </div>
+    </div>
+  );
 };
 
 export default FavouriteTV;

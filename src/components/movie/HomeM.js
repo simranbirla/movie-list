@@ -15,7 +15,6 @@ const HomeM = () => {
   return (
     <div>
       This is home page of movies::
-      <h1>{value}</h1>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)" }}>
         {renderList(movielist, setValue, value, "movie")}
         {localStorage.setItem("movie", JSON.stringify(value))}
