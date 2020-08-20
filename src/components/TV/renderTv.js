@@ -5,10 +5,12 @@ const renderTv = (data) => {
     <div>
       <h1>{data.name}</h1>
       <img
-        src={`https://image.tmdb.org/t/p/w300${data.poster_path}`}
+        src={`https://image.tmdb.org/t/p/w300${data.backdrop_path}`}
         alt={data.original}
       />
-
+      <p>{data.overview}</p>
+      <p>Release:{data.first_air_date}</p>
+      <p>Vote:{data.vote_average}</p>
       <div>
         Runtime:
         {data.episode_run_time
@@ -47,11 +49,11 @@ const renderTv = (data) => {
           : false}
       </div>
       <div>
-        Production:
         {data.production_companies
           ? data.production_companies.map((company) => {
               return (
                 <div key={company.id}>
+                  Production:
                   {company.name}
                   <img
                     src={`https://image.tmdb.org/t/p/w300${company.logo_path}`}
