@@ -9,6 +9,15 @@ const HomeTV = (props) => {
   const tvlist = useTrending("tv", props.match.params.id);
   const { tv, setTV } = useContext(FavTV);
   //console.log(fav);
+  const prevShow = () => {
+    if (props.match.params.id !== "1") {
+      return (
+        <Link to={`/tv-home/${parseInt(props.match.params.id) - 1}`}>
+          <button>Prev</button>
+        </Link>
+      );
+    }
+  };
 
   return (
     <div>
@@ -17,6 +26,7 @@ const HomeTV = (props) => {
       <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)" }}>
         {renderList(tvlist, setTV, tv, "tv")}
       </div>
+      {prevShow()}
       <Link to={`/tv-home/${parseInt(props.match.params.id) + 1}`}>
         <button>Next</button>
       </Link>
