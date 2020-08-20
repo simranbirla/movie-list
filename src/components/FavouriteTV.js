@@ -48,7 +48,7 @@ const FavouriteTV = () => {
       addName(namep);
     });
     return;
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   // console.log(name);
 

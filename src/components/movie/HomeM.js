@@ -18,7 +18,6 @@ const HomeM = () => {
       <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)" }}>
         {renderList(movielist, setValue, value, "movie")}
         {localStorage.setItem("movie", JSON.stringify(value))}
-        <button>Prev</button>
         <Link to={`/movie-home/2`}>
           <button>Next</button>
         </Link>

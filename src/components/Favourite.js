@@ -47,8 +47,8 @@ const Favourite = () => {
       addName(namep);
     });
     return;
-  }, []);
-
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  console.log("hi");
   return (
     <div>
       Array of favourites movie:::{" "}

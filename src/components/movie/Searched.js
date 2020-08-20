@@ -16,7 +16,7 @@ const Searched = (props) => {
     })(props.match.params.word);
 
     return;
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
   console.log(search[0]);
   return (
     <div>
