@@ -9,21 +9,15 @@ const NextPage = (props) => {
   const showButton = () => {
     if (props.match.params.page === "2") {
       return (
-        <div>
-          <Link to="/movie-home">
-            <button>Prev</button>
-          </Link>
-          <Link to="/movie-home/3">
-            <button>Next</button>
-          </Link>
-        </div>
+        <Link to="/movie-home">
+          <button>Prev</button>
+        </Link>
       );
     } else {
       return (
-        <div>
+        <Link to={`/movie-home/${parseInt(props.match.params.page) - 1}`}>
           <button>Prev</button>
-          <button>Next</button>
-        </div>
+        </Link>
       );
     }
   };
@@ -39,6 +33,9 @@ const NextPage = (props) => {
         {renderList(movielist, setValue, value, "movie")}
         {localStorage.setItem("movie", JSON.stringify(value))}
         {showButton()}
+        <Link to={`/movie-home/${parseInt(props.match.params.page) + 1}`}>
+          <button>Next</button>
+        </Link>
       </div>
     </div>
   );
