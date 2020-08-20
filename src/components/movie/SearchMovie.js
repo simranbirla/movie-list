@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 const SearchMovie = (props) => {
   const [word, setWord] = useState("");
-  console.log(props);
+  //console.log(props);
   const onMovieInput = (e) => {
     setWord(e.target.value);
   };

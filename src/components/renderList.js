@@ -9,7 +9,7 @@ const renderList = (list, setfunc, fav, type) => {
     //console.log(localStorage.getItem(type));
   };
 
-  console.log(list);
+  //console.log(list);
   if (list) {
     return list.map((item) => {
       return (

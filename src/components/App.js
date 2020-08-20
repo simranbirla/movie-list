@@ -13,6 +13,8 @@ import { FavTV } from "../context/Favour";
 import localStore from "./local";
 import Searched from "./movie/Searched";
 import SearchedTv from "./TV/SearchedTv";
+import NextPage from "./movie/NextPage";
+
 const App = () => {
   const val = localStore("movie");
   //console.log("VAL", val);
@@ -28,7 +30,8 @@ const App = () => {
           <FavTV.Provider value={{ tv, setTV }}>
             <Switch>
               <Route path="/" exact component={Home} />
-              <Route path="/movie-home" component={HomeM} />
+              <Route path="/movie-home" exact component={HomeM} />
+              <Route path="/movie-home/:page" component={NextPage} />
               <Route path="/movie/:id" exact component={Movie} />
               <Route path="/tv-home" component={HomeTV} />
               <Route path="/tvshow/:id" component={Tvshow} />
