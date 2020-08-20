@@ -5,8 +5,8 @@ import renderList from "../renderList";
 import { FavList } from "../../context/Favour";
 import SearchMovie from "./SearchMovie";
 
-const HomeM = () => {
-  const movielist = useTrending("movie", 1);
+const HomeM = (props) => {
+  const movielist = useTrending("movie", props.match.params.id);
   const { value, setValue } = useContext(FavList);
   //console.log(movielist);
   return (
@@ -18,7 +18,7 @@ const HomeM = () => {
       <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)" }}>
         {renderList(movielist, setValue, value, "movie")}
         {localStorage.setItem("movie", JSON.stringify(value))}
-        <Link to={`/movie-home/2`}>
+        <Link to={`/movie-home/${parseInt(props.match.params.id) + 1}`}>
           <button>Next</button>
         </Link>
       </div>
