@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-const SearchMovie = () => {
+const SearchMovie = (props) => {
   const [word, setWord] = useState("");
-
+  console.log(props);
   const onMovieInput = (e) => {
     setWord(e.target.value);
   };
@@ -11,7 +11,7 @@ const SearchMovie = () => {
     <div>
       <form>
         <input placeholder="Enter movie" onChange={(e) => onMovieInput(e)} />
-        <Link to={`/movie/query/${word}`}>
+        <Link to={`/${props.type}/query/${word}`}>
           <button type="submit">Search</button>
         </Link>
       </form>

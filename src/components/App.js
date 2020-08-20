@@ -12,7 +12,7 @@ import { FavList } from "../context/Favour";
 import { FavTV } from "../context/Favour";
 import localStore from "./local";
 import Searched from "./movie/Searched";
-
+import SearchedTv from "./TV/SearchedTv";
 const App = () => {
   const val = localStore("movie");
   //console.log("VAL", val);
@@ -35,6 +35,7 @@ const App = () => {
               <Route path="/favourite/movie" component={Favourite} />
               <Route path="/favourite/tv" component={FavouriteTV} />
               <Route path="/movie/query/:word" component={Searched} />
+              <Route path="/tv/query/:word" component={SearchedTv} />
             </Switch>
           </FavTV.Provider>
         </FavList.Provider>

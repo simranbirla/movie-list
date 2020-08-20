@@ -13,7 +13,7 @@ const HomeM = () => {
     <div>
       This is home page of movies::
       <div>
-        <SearchMovie />
+        <SearchMovie type="movie" />
       </div>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)" }}>
         {renderList(movielist, setValue, value, "movie")}

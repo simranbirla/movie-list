@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import useTrending from "../useTrending";
 import renderList from "../renderList";
 import { FavTV } from "../../context/Favour";
-
+import SearchMovie from "../movie/SearchMovie";
 const HomeTV = () => {
   const tvlist = useTrending("tv");
   const { tv, setTV } = useContext(FavTV);
@@ -12,6 +12,7 @@ const HomeTV = () => {
   return (
     <div>
       This is home page of TV::
+      <SearchMovie type="tv" />
       <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)" }}>
         {renderList(tvlist, setTV, tv, "tv")}
       </div>
