@@ -11,6 +11,7 @@ import FavouriteTV from "./FavouriteTV";
 import { FavList } from "../context/Favour";
 import { FavTV } from "../context/Favour";
 import localStore from "./local";
+import Searched from "./movie/Searched";
 
 const App = () => {
   const val = localStore("movie");
@@ -18,7 +19,7 @@ const App = () => {
   const [value, setValue] = useState(val);
   //console.log("AFVLIST", value);
   const [tv, setTV] = useState(localStore("tv"));
-  console.log(tv);
+  //console.log(tv);
   return (
     <div>
       <BrowserRouter>
@@ -28,11 +29,12 @@ const App = () => {
             <Switch>
               <Route path="/" exact component={Home} />
               <Route path="/movie-home" component={HomeM} />
-              <Route path="/movie/:id" component={Movie} />
+              <Route path="/movie/:id" exact component={Movie} />
               <Route path="/tv-home" component={HomeTV} />
               <Route path="/tvshow/:id" component={Tvshow} />
               <Route path="/favourite/movie" component={Favourite} />
               <Route path="/favourite/tv" component={FavouriteTV} />
+              <Route path="/movie/query/:word" component={Searched} />
             </Switch>
           </FavTV.Provider>
         </FavList.Provider>

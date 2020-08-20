@@ -37,7 +37,7 @@ const FavouriteTV = () => {
   };
 
   useEffect(() => {
-    const test = Promise.all(
+    Promise.all(
       urls.map((url) =>
         fetch(url)
           .then((res) => res.json())
