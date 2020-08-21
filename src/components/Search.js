@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-const SearchMovie = (props) => {
+const Search = (props) => {
   const [word, setWord] = useState("");
   //console.log(props);
   const onMovieInput = (e) => {
@@ -19,4 +19,4 @@ const SearchMovie = (props) => {
   );
 };
 
-export default SearchMovie;
+export default Search;

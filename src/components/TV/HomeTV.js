@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import useTrending from "../useTrending";
 import renderList from "../renderList";
 import { FavTV } from "../../context/Favour";
-import SearchMovie from "../movie/SearchMovie";
+import Search from "../Search";
 import { Link } from "react-router-dom";
 
 const HomeTV = (props) => {
@@ -22,7 +22,7 @@ const HomeTV = (props) => {
   return (
     <div>
       This is home page of TV::
-      <SearchMovie type="tvshow" />
+      <Search type="tv" />
       <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)" }}>
         {renderList(tvlist, setTV, tv, "tv")}
       </div>

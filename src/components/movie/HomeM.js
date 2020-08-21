@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import useTrending from "../useTrending";
 import renderList from "../renderList";
 import { FavList } from "../../context/Favour";
-import SearchMovie from "./SearchMovie";
+import Search from "../Search";
 
 const HomeM = (props) => {
   const movielist = useTrending("movie", props.match.params.id);
@@ -22,7 +22,7 @@ const HomeM = (props) => {
     <div>
       This is home page of movies::
       <div>
-        <SearchMovie type="movie" />
+        <Search type="movie" />
       </div>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)" }}>
         {renderList(movielist, setValue, value, "movie")}

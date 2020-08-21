@@ -11,6 +11,7 @@ const renderList = (list, setfunc, fav, type) => {
 
   //console.log(list);
   if (list) {
+    console.log(list);
     return list.map((item) => {
       return (
         <div key={item.id}>
@@ -25,7 +26,7 @@ const renderList = (list, setfunc, fav, type) => {
             </Link>
             <p>{item.original_title || item.original_name}</p>
             <p>Release date:{item.first_air_date || item.release_date}</p>
-            <p>Vote:{item.vote_average}</p>
+            <div>{item.vote_count == 0 ? "New" : item.vote_average}</div>
             <button onClick={() => onButton(item.id)}>Favourite</button>
           </div>
         </div>
