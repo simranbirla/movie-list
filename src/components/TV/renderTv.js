@@ -4,10 +4,15 @@ const renderTv = (data) => {
   return (
     <div>
       <h1>{data.name}</h1>
-      <img
-        src={`https://image.tmdb.org/t/p/w300${data.backdrop_path}`}
-        alt={data.original}
-      />
+      {data.backdrop_path ? (
+        <img
+          src={`https://image.tmdb.org/t/p/w300${data.backdrop_path}`}
+          alt={data.original}
+        />
+      ) : (
+        false
+      )}
+
       <p>{data.overview}</p>
       <p>Release:{data.first_air_date}</p>
       <p>Vote:{data.vote_average}</p>
@@ -35,14 +40,18 @@ const renderTv = (data) => {
               return (
                 <div key={create.id}>
                   {create.name}
-                  <img
-                    src={
-                      create.profile_path
-                        ? `https://image.tmdb.org/t/p/w300${create.profile_path}`
-                        : ""
-                    }
-                    alt={create.name}
-                  />
+                  {create.profile_path ? (
+                    <img
+                      src={
+                        create.profile_path
+                          ? `https://image.tmdb.org/t/p/w300${create.profile_path}`
+                          : ""
+                      }
+                      alt={create.name}
+                    />
+                  ) : (
+                    false
+                  )}
                 </div>
               );
             })
@@ -55,10 +64,14 @@ const renderTv = (data) => {
                 <div key={company.id}>
                   Production:
                   {company.name}
-                  <img
-                    src={`https://image.tmdb.org/t/p/w300${company.logo_path}`}
-                    alt={company.name}
-                  />
+                  {company.logo_path ? (
+                    <img
+                      src={`https://image.tmdb.org/t/p/w300${company.logo_path}`}
+                      alt={company.name}
+                    />
+                  ) : (
+                    false
+                  )}
                 </div>
               );
             })
@@ -71,10 +84,15 @@ const renderTv = (data) => {
               return (
                 <div key={season.id}>
                   <p>{season.episode_count}</p>
-                  <img
-                    src={`https://image.tmdb.org/t/p/w300${season.poster_path}`}
-                    alt={season.name}
-                  />
+                  {season.poster_path ? (
+                    <img
+                      src={`https://image.tmdb.org/t/p/w300${season.poster_path}`}
+                      alt={season.name}
+                    />
+                  ) : (
+                    false
+                  )}
+
                   <h3>{season.name}</h3>
                   <p>{season.overview}</p>
                 </div>

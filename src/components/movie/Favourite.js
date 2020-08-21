@@ -19,10 +19,15 @@ const Favourite = () => {
         return (
           <div key={data.id}>
             <button onClick={() => onDelete(data)}>X</button>
-            <img
-              src={`https://image.tmdb.org/t/p/w200${data.poster_path}`}
-              alt={data.name}
-            />
+            {data.poster_path ? (
+              <img
+                src={`https://image.tmdb.org/t/p/w200${data.poster_path}`}
+                alt={data.name}
+              />
+            ) : (
+              false
+            )}
+
             <h2>{data.name}</h2>
           </div>
         );

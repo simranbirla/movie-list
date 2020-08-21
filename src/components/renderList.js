@@ -1,15 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { genreTV, genreMovie } from "./genres";
 const renderList = (list, setfunc, fav, type) => {
   const onButton = (id) => {
     setfunc([...fav, id]);
-    //console.log(fav);
     localStorage.setItem(type, JSON.stringify([...fav, id]));
-    //console.log(localStorage.getItem(type));
   };
-
-  //console.log(list);
   if (list) {
     console.log(list);
     return list.map((item) => {
@@ -26,7 +22,19 @@ const renderList = (list, setfunc, fav, type) => {
             </Link>
             <p>{item.original_title || item.original_name}</p>
             <p>Release date:{item.first_air_date || item.release_date}</p>
-            <div>{item.vote_count == 0 ? "New" : item.vote_average}</div>
+            <div>{item.vote_count === 0 ? "New" : item.vote_average}</div>
+            <div>
+              Genre:
+              {item.genre_ids
+                ? item.genre_ids.map((id) => {
+                    const item =
+                      type === "movie"
+                        ? genreMovie.find((i) => i.id === id)
+                        : genreTV.find((i) => i.id === id);
+                    return item.name + " ";
+                  })
+                : false}
+            </div>
             <button onClick={() => onButton(item.id)}>Favourite</button>
           </div>
         </div>
