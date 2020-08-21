@@ -1,17 +1,16 @@
 import React, { useState, useEffect, useContext } from "react";
-import { FavList } from "../context/Favour";
+import { FavList } from "../../context/Favour";
 import _ from "lodash";
 const Favourite = () => {
-  const { value } = useContext(FavList);
+  const { value, setValue } = useContext(FavList);
   const [name, setName] = useState([]);
-  const val_array = _.uniq(value);
 
-  const urls = val_array.map((val) => {
-    return `https://api.themoviedb.org/3/movie/${val}?api_key=070fc4e51d03c72359b284a5773a3a25&language=en-US`;
-  });
-
-  const addName = (movie) => {
-    setName([...name, movie]);
+  const onDelete = (data) => {
+    setValue(value.filter((id) => id !== data.id));
+    localStorage.setItem(
+      "movie",
+      JSON.stringify(value.filter((id) => id !== data.id))
+    );
   };
 
   const renderFav = (datas) => {
@@ -19,6 +18,7 @@ const Favourite = () => {
       return datas.map((data) => {
         return (
           <div key={data.id}>
+            <button onClick={() => onDelete(data)}>X</button>
             <img
               src={`https://image.tmdb.org/t/p/w200${data.poster_path}`}
               alt={data.name}
@@ -37,6 +37,10 @@ const Favourite = () => {
   };
 
   useEffect(() => {
+    const urls = _.uniq(value).map((val) => {
+      return `https://api.themoviedb.org/3/movie/${val}?api_key=070fc4e51d03c72359b284a5773a3a25&language=en-US`;
+    });
+
     Promise.all(
       urls.map((url) =>
         fetch(url)
@@ -44,11 +48,11 @@ const Favourite = () => {
           .then((res) => res)
       )
     ).then((namep) => {
-      addName(namep);
+      setName([namep]);
     });
     return;
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
-  console.log("hi");
+  }, [value]);
+  // console.log("hi");
   return (
     <div>
       Array of favourites movie:::{" "}

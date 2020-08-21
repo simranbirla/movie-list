@@ -26,7 +26,6 @@ const HomeM = (props) => {
       </div>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)" }}>
         {renderList(movielist, setValue, value, "movie")}
-        {localStorage.setItem("movie", JSON.stringify(value))}
         {prevShow()}
         <Link to={`/movie-home/${parseInt(props.match.params.id) + 1}`}>
           <button>Next</button>

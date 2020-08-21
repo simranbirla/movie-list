@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import _ from "lodash";
 import Header from "./Header";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./Home";
@@ -6,8 +7,8 @@ import HomeM from "./movie/HomeM";
 import Movie from "./movie/Movie";
 import HomeTV from "./TV/HomeTV";
 import Tvshow from "./TV/Tvshow";
-import Favourite from "./Favourite";
-import FavouriteTV from "./FavouriteTV";
+import Favourite from "./movie/Favourite";
+import FavouriteTV from "./TV/FavouriteTV";
 import { FavList } from "../context/Favour";
 import { FavTV } from "../context/Favour";
 import localStore from "./local";
@@ -15,11 +16,11 @@ import Searched from "./movie/Searched";
 import SearchedTv from "./TV/SearchedTv";
 
 const App = () => {
-  const val = localStore("movie");
+  const val = _.uniq(localStore("movie"));
   //console.log("VAL", val);
-  const [value, setValue] = useState(val);
+  const [value, setValue] = useState(_.uniq(val));
   //console.log("AFVLIST", value);
-  const [tv, setTV] = useState(localStore("tv"));
+  const [tv, setTV] = useState(_.uniq(localStore("tv")));
   //console.log(tv);
   return (
     <div>
