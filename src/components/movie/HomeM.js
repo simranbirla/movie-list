@@ -20,7 +20,6 @@ const HomeM = (props) => {
   };
   return (
     <div>
-      This is home page of movies::
       <div>
         <Search type="movie" />
       </div>
