@@ -22,15 +22,18 @@ const HomeTV = (props) => {
 
   return (
     <div>
-      This is home page of TV::
-      <Search type="tv" />
+      <div>
+        <Search type="tv" />
+      </div>
       <div className="grid-container">
         {renderList(tvlist, setTV, tv, "tv")}
       </div>
-      {prevShow()}
-      <Link to={`/tv-home/${parseInt(props.match.params.id) + 1}`}>
-        <button>Next</button>
-      </Link>
+      <div className="nav-buttons">
+        {prevShow()}
+        <Link to={`/tv-home/${parseInt(props.match.params.id) + 1}`}>
+          <button>Next</button>
+        </Link>
+      </div>
     </div>
   );
 };

@@ -26,6 +26,8 @@ const HomeM = (props) => {
       </div>
       <div className="grid-container">
         {renderList(movielist, setValue, value, "movie")}
+      </div>
+      <div className="nav-buttons">
         {prevShow()}
         <Link to={`/movie-home/${parseInt(props.match.params.id) + 1}`}>
           <button>Next</button>
