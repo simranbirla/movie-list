@@ -4,6 +4,7 @@ import useTrending from "../useTrending";
 import renderList from "../renderList";
 import { FavList } from "../../context/Favour";
 import Search from "../Search";
+import "../../Style/HomePage.css";
 
 const HomeM = (props) => {
   const movielist = useTrending("movie", props.match.params.id);
@@ -23,7 +24,7 @@ const HomeM = (props) => {
       <div>
         <Search type="movie" />
       </div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)" }}>
+      <div className="grid-container">
         {renderList(movielist, setValue, value, "movie")}
         {prevShow()}
         <Link to={`/movie-home/${parseInt(props.match.params.id) + 1}`}>

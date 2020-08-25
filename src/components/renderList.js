@@ -1,17 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { genreTV, genreMovie } from "./genres";
+import "../Style/HomePage.css";
+
 const renderList = (list, setfunc, fav, type) => {
-  const onButton = (id) => {
+  const onButton = (e, id) => {
+    e.target.className = "fas fa-heart red";
     setfunc([...fav, id]);
     localStorage.setItem(type, JSON.stringify([...fav, id]));
   };
   if (list) {
-    console.log(list);
     return list.map((item) => {
       return (
-        <div key={item.id}>
-          <div>
+        <div key={item.id} className="outer-container">
+          <div className="img-container">
             <Link
               to={type === "movie" ? `/movie/${item.id}` : `/tvshow/${item.id}`}
             >
@@ -20,28 +22,39 @@ const renderList = (list, setfunc, fav, type) => {
                 alt={item.original_title}
               />
             </Link>
-            <p>{item.original_title || item.original_name}</p>
-            <p>Release date:{item.first_air_date || item.release_date}</p>
-            <div>{item.vote_count === 0 ? "New" : item.vote_average}</div>
-            <div>
-              Genre:
-              {item.genre_ids
-                ? item.genre_ids.map((id) => {
-                    const item =
-                      type === "movie"
-                        ? genreMovie.find((i) => i.id === id)
-                        : genreTV.find((i) => i.id === id);
-                    return item.name + " ";
-                  })
-                : false}
-            </div>
-            <button onClick={() => onButton(item.id)}>Favourite</button>
           </div>
+          <p
+            className="title"
+            style={{ fontWeight: "bold", color: "white", fontSize: "1.2em" }}
+          >
+            {item.original_title || item.original_name}
+          </p>
+          <p className="date">
+            Release date:{item.first_air_date || item.release_date}
+          </p>
+          <div className="vote">
+            {item.vote_count === 0 ? "New" : item.vote_average}
+          </div>
+          <div className="genre">
+            <strong>Genre:</strong>
+            {item.genre_ids
+              ? item.genre_ids.map((id) => {
+                  const item =
+                    type === "movie"
+                      ? genreMovie.find((i) => i.id === id)
+                      : genreTV.find((i) => i.id === id);
+                  return item.name + " ";
+                })
+              : false}
+          </div>
+          <button className="fav" onClick={(e) => onButton(e, item.id)}>
+            <i className="fas fa-heart"></i>
+          </button>
         </div>
       );
     });
   } else {
-    return <div>Loading...</div>;
+    return <div class="loader">Loading...</div>;
   }
 };
 export default renderList;

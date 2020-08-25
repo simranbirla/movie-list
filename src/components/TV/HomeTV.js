@@ -4,6 +4,7 @@ import renderList from "../renderList";
 import { FavTV } from "../../context/Favour";
 import Search from "../Search";
 import { Link } from "react-router-dom";
+import "../../Style/HomePage.css";
 
 const HomeTV = (props) => {
   const tvlist = useTrending("tv", props.match.params.id);
@@ -23,7 +24,7 @@ const HomeTV = (props) => {
     <div>
       This is home page of TV::
       <Search type="tv" />
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)" }}>
+      <div className="grid-container">
         {renderList(tvlist, setTV, tv, "tv")}
       </div>
       {prevShow()}
