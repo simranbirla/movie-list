@@ -14,7 +14,7 @@ const Movie = (props) => {
     })(props.match.params.id);
   }, []);
 
-  return <div>this is a particular movie of id {renderMovie(movie)}</div>;
+  return <div>{renderMovie(movie)}</div>;
 };
 
 export default Movie;
