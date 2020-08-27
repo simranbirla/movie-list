@@ -1,0 +1,39 @@
+.favourite-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 10px;
+  row-gap: 20px;
+  justify-items: center;
+  margin: 10px;
+}
+
+.outer {
+  border: 5px double whitesmoke;
+  position: relative;
+  width: 250px;
+}
+
+.outer .image {
+  padding: 10px;
+  margin: auto;
+}
+
+.outer h2 {
+  color: white;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.close-btn {
+  position: absolute;
+  top: 0;
+  background: red;
+  border: none;
+  font-weight: bolder;
+  cursor: pointer;
+  font-size: 1.2em;
+}
+
+.close-btn:focus {
+  outline: none;
+}

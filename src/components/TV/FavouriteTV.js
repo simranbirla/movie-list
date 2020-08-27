@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { FavTV } from "../../context/Favour";
+import "../../Style/Favourite.css";
 import _ from "lodash";
 const FavouriteTV = () => {
   const { tv, setTV } = useContext(FavTV);
@@ -17,13 +18,16 @@ const FavouriteTV = () => {
     if (datas) {
       return datas.map((data) => {
         return (
-          <div key={data.id}>
-            <button onClick={() => onDelete(data)}>X</button>
+          <div key={data.id} className="outer">
+            <button onClick={() => onDelete(data)} className="close-btn">
+              X
+            </button>
             <img
               src={`https://image.tmdb.org/t/p/w200${data.poster_path}`}
               alt={data.name}
+              className="image"
             />
-            <h2>{data.name}</h2>
+            <h2 style={{ color: "white" }}>{data.name}</h2>
           </div>
         );
       });
@@ -56,10 +60,7 @@ const FavouriteTV = () => {
 
   return (
     <div>
-      Array of favourites TV shows:::
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)" }}>
-        {renderFav(name)}
-      </div>
+      <div className="favourite-container">{renderFav(name)}</div>
     </div>
   );
 };

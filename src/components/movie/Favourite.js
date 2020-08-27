@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { FavList } from "../../context/Favour";
 import _ from "lodash";
+import "../../Style/Favourite.css";
 const Favourite = () => {
   const { value, setValue } = useContext(FavList);
   const [name, setName] = useState([]);
@@ -14,21 +15,25 @@ const Favourite = () => {
   };
 
   const renderFav = (datas) => {
+    console.log(datas);
     if (datas) {
       return datas.map((data) => {
         return (
-          <div key={data.id}>
-            <button onClick={() => onDelete(data)}>X</button>
+          <div key={data.id} className="outer">
+            <button onClick={() => onDelete(data)} className="close-btn">
+              X
+            </button>
             {data.poster_path ? (
               <img
                 src={`https://image.tmdb.org/t/p/w200${data.poster_path}`}
-                alt={data.name}
+                alt={data.title}
+                className="image"
               />
             ) : (
               false
             )}
 
-            <h2>{data.name}</h2>
+            <h2 className="title">{data.title}</h2>
           </div>
         );
       });
@@ -60,10 +65,7 @@ const Favourite = () => {
   // console.log("hi");
   return (
     <div>
-      Array of favourites movie:::{" "}
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)" }}>
-        {renderFav(name[0])}
-      </div>
+      <div className="favourite-container">{renderFav(name[0])}</div>
     </div>
   );
 };
