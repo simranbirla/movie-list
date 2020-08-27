@@ -1,38 +1,43 @@
 import React from "react";
+import "../../Style/TVshow.css";
 
 const renderTv = (data) => {
   return (
-    <div>
-      <h1>{data.name}</h1>
-      {data.backdrop_path ? (
-        <img
-          src={`https://image.tmdb.org/t/p/w300${data.backdrop_path}`}
-          alt={data.original}
-        />
-      ) : (
-        false
-      )}
-
-      <p>{data.overview}</p>
-      <p>Release:{data.first_air_date}</p>
-      <p>Vote:{data.vote_average}</p>
-      <div>
-        Runtime:
-        {data.episode_run_time
-          ? data.episode_run_time.map((time) => {
-              return `${time} mins `;
-            })
-          : false}
+    <div className="outer-tv">
+      <h1 style={{ textAlign: "center", fontSize: "2.6em" }}>{data.name}</h1>
+      <div className="back-img">
+        {data.backdrop_path ? (
+          <img
+            src={`https://image.tmdb.org/t/p/w300${data.backdrop_path}`}
+            alt={data.original}
+          />
+        ) : (
+          false
+        )}
       </div>
-      <div>
-        Genres:
-        {data.genres ? data.genres.map((genre) => `${genre.name} `) : false}
-      </div>
-      <p>
+      <p className="overview">{data.overview}</p>
+      <div className="watch">
         <a href={data.homepage} target="_blank" rel="noopener noreferrer">
           Watch
         </a>
-      </p>
+      </div>
+      <div className="info">
+        <p>Release:{data.first_air_date}</p>
+        <p>Vote:{data.vote_average}</p>
+        <p>
+          Runtime:
+          {data.episode_run_time
+            ? data.episode_run_time.map((time) => {
+                return `${time} mins `;
+              })
+            : false}
+        </p>
+        <p>
+          Genres:
+          {data.genres ? data.genres.map((genre) => `${genre.name} `) : false}
+        </p>
+      </div>
+
       <div>
         Created by:
         {data.created_by

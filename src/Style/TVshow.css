@@ -1,0 +1,24 @@
+.back-img {
+  text-align: center;
+}
+
+.back-img img {
+  border: 10px double grey;
+  height: 300px;
+}
+
+.overview {
+  display: block;
+  padding: 10px;
+  letter-spacing: 1.2px;
+  border: 5px dashed white;
+}
+
+.info {
+  font-size: 18px;
+  text-align: center;
+  background: rgb(138, 9, 9);
+  width: 90%;
+  margin: auto;
+  padding: 10px;
+}

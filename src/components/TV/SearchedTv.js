@@ -20,7 +20,7 @@ const SearchedTv = (props) => {
   console.log(search[0]);
   return (
     <div>
-      This is searched page{renderList(search[0], setTv, tv, "tv")}
+      {renderList(search[0], setTv, tv, "tv")}
       {localStorage.setItem("tv", JSON.stringify(tv))}
     </div>
   );

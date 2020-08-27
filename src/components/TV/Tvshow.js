@@ -14,7 +14,7 @@ const Tvshow = (props) => {
       setTvshow(data);
     })(props.match.params.id);
   }, []);
-  return <div>this is a particular TV show {renderTv(tvshow)}</div>;
+  return <div>{renderTv(tvshow)}</div>;
 };
 
 export default Tvshow;
