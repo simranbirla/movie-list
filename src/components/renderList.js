@@ -18,7 +18,11 @@ const renderList = (list, setfunc, fav, type) => {
               to={type === "movie" ? `/movie/${item.id}` : `/tvshow/${item.id}`}
             >
               <img
-                src={`https://image.tmdb.org/t/p/w200${item.poster_path}`}
+                src={
+                  item.poster_path
+                    ? `https://image.tmdb.org/t/p/w200${item.poster_path}`
+                    : "https://ehelperteam.com/wp-content/uploads/2019/09/Broken-images.png"
+                }
                 alt={item.original_title}
               />
             </Link>
@@ -54,7 +58,11 @@ const renderList = (list, setfunc, fav, type) => {
       );
     });
   } else {
-    return <div class="loader">Loading...</div>;
+    return (
+      <div className="loader">
+        <div class="lds-dual-ring"></div>{" "}
+      </div>
+    );
   }
 };
 export default renderList;

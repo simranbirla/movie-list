@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import renderList from "../renderList";
 import { FavList } from "../../context/Favour";
-
+import "../../Style/HomePage.css";
 const Searched = (props) => {
   const [search, setSearch] = useState([]);
   const { value, setValue } = useContext(FavList);
@@ -20,8 +20,10 @@ const Searched = (props) => {
   console.log(search[0]);
   return (
     <div>
-      This is searched page{renderList(search[0], setValue, value, "movie")}
-      {localStorage.setItem("movie", JSON.stringify(value))}
+      <div className="grid-container">
+        {renderList(search[0], setValue, value, "movie")}
+        {localStorage.setItem("movie", JSON.stringify(value))}
+      </div>
     </div>
   );
 };
