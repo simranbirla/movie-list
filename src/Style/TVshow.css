@@ -22,3 +22,60 @@
   margin: auto;
   padding: 10px;
 }
+
+.watch a {
+  font-size: 1.5em;
+  color: white;
+  text-decoration: none;
+}
+
+.watch {
+  background-color: green;
+  height: 50px;
+  width: 80px;
+  line-height: 50px;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 20px;
+  box-shadow: 5px 5px 2px darkgreen;
+}
+
+.production {
+  font-size: 18px;
+}
+
+.produce {
+  display: grid;
+  row-gap: 20px;
+}
+
+.produce-container {
+  width: 90%;
+  height: 40px;
+  line-height: 40px;
+  border: 4px outset white;
+}
+
+.season {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 20px;
+}
+
+.season .tv-outer {
+  width: 400px;
+  text-align: center;
+  border: 3px inset gray;
+  box-shadow: 5px 2px 0 rgba(114, 113, 113, 0.5);
+}
+
+.season .episode {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: green;
+  line-height: 40px;
+  font-size: 1.3em;
+}

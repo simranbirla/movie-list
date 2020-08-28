@@ -38,57 +38,42 @@ const renderTv = (data) => {
         </p>
       </div>
 
-      <div>
-        Created by:
-        {data.created_by
-          ? data.created_by.map((create) => {
-              return (
-                <div key={create.id}>
-                  {create.name}
-                  {create.profile_path ? (
-                    <img
-                      src={
-                        create.profile_path
-                          ? `https://image.tmdb.org/t/p/w300${create.profile_path}`
-                          : ""
-                      }
-                      alt={create.name}
-                    />
-                  ) : (
-                    false
-                  )}
-                </div>
-              );
-            })
-          : false}
+      <div className="production">
+        <p style={{ color: "red" }}>Created by:</p>
+        <div className="produce">
+          {data.created_by
+            ? data.created_by.map((create) => {
+                return (
+                  <div key={create.id} className="produce-container">
+                    {create.name}
+                  </div>
+                );
+              })
+            : false}
+        </div>
       </div>
-      <div>
-        {data.production_companies
-          ? data.production_companies.map((company) => {
-              return (
-                <div key={company.id}>
-                  Production:
-                  {company.name}
-                  {company.logo_path ? (
-                    <img
-                      src={`https://image.tmdb.org/t/p/w300${company.logo_path}`}
-                      alt={company.name}
-                    />
-                  ) : (
-                    false
-                  )}
-                </div>
-              );
-            })
-          : false}
+      <div className="production">
+        <p style={{ color: "red" }}>Production:</p>
+        <div className="produce">
+          {data.production_companies
+            ? data.production_companies.map((company) => {
+                return (
+                  <div key={company.id} className="produce-container">
+                    {company.name}
+                  </div>
+                );
+              })
+            : false}
+        </div>
       </div>
-      <div>
-        <h4>Seasons</h4>
+      <div className="season">
+        <h2>Seasons:</h2>
+
         {data.seasons
           ? data.seasons.map((season) => {
               return (
-                <div key={season.id}>
-                  <p>{season.episode_count}</p>
+                <div key={season.id} className="tv-outer">
+                  <div className="episode">{season.episode_count}</div>
                   {season.poster_path ? (
                     <img
                       src={`https://image.tmdb.org/t/p/w300${season.poster_path}`}

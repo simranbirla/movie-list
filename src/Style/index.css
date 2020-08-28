@@ -8,3 +8,37 @@ body {
   background: black;
   color: white;
 }
+
+.home {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 88vh;
+  background: url("https://image.freepik.com/free-photo/movie-time-text-with-3d-glasses-spilled-popcorn-red-background_23-2148188178.jpg")
+    no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  background-size: cover;
+  font-size: 2.5em;
+  color: black;
+}
+
+.home h1 {
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  text-shadow: 1px 1px 1px rgba(16, 16, 16, 0.2),
+    1px 2px 1px rgba(16, 16, 16, 0.2), 1px 3px 1px rgba(16, 16, 16, 0.2),
+    1px 4px 1px rgba(16, 16, 16, 0.2), 1px 5px 1px rgba(16, 16, 16, 0.2),
+    1px 6px 1px rgba(16, 16, 16, 0.2), 1px 7px 1px rgba(16, 16, 16, 0.2),
+    1px 8px 1px rgba(16, 16, 16, 0.2), 1px 9px 1px rgba(16, 16, 16, 0.2),
+    1px 10px 1px rgba(16, 16, 16, 0.2), 1px 18px 6px rgba(16, 16, 16, 0.4),
+    1px 22px 10px rgba(16, 16, 16, 0.2), 1px 25px 35px rgba(16, 16, 16, 0.2),
+    1px 30px 60px rgba(16, 16, 16, 0.4);
+}
+
+.home h2 {
+  font-style: oblique;
+}
