@@ -82,6 +82,11 @@
 .production p {
   font-weight: bolder;
 }
+
+.product {
+  text-align: center;
+  border: 5px inset white;
+}
 .backdrop {
   margin: 0 auto;
   width: 100%;

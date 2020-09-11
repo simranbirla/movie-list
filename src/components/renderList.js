@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { genreTV, genreMovie } from "./genres";
+import { genre } from "./genres";
 import "../Style/HomePage.css";
 
 const renderList = (list, setfunc, fav, type) => {
@@ -43,11 +43,8 @@ const renderList = (list, setfunc, fav, type) => {
             <strong>Genre:</strong>
             {item.genre_ids
               ? item.genre_ids.map((id) => {
-                  const item =
-                    type === "movie"
-                      ? genreMovie.find((i) => i.id === id)
-                      : genreTV.find((i) => i.id === id);
-                  return item.name + " ";
+                  const item_genre = genre.find((i) => i.id === id);
+                  return item_genre.name + " ";
                 })
               : false}
           </div>

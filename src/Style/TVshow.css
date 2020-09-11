@@ -32,7 +32,6 @@
 .watch {
   background-color: green;
   height: 50px;
-  width: 80px;
   line-height: 50px;
   text-align: center;
   margin: auto;
@@ -54,6 +53,7 @@
   height: 40px;
   line-height: 40px;
   border: 4px outset white;
+  text-align: center;
 }
 
 .season {

@@ -1,4 +1,4 @@
-export const genreTV = [
+export const genre = [
   {
     id: 10759,
     name: "Action & Adventure",
@@ -63,9 +63,6 @@ export const genreTV = [
     id: 37,
     name: "Western",
   },
-];
-
-export const genreMovie = [
   {
     id: 28,
     name: "Action",

@@ -16,7 +16,7 @@ const renderMovie = (data) => {
         </div>
         <div className="info">
           <div className="votes">{data.vote_average}</div>
-          <h2 className="watch">{data.title}</h2>
+          <h3 className="watch">{data.title}</h3>
           <div className="link">
             <a href={data.homepage} target="_blank" rel="noopener noreferrer">
               View
@@ -41,7 +41,7 @@ const renderMovie = (data) => {
           Production:
           {data.production_companies
             ? data.production_companies.map((produce) => {
-                return <p> {produce.name} </p>;
+                return <p className="product"> {produce.name} </p>;
               })
             : ""}
         </p>
