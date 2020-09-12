@@ -41,11 +41,15 @@
 
 .production {
   font-size: 18px;
+  text-align: center;
+  margin: auto;
 }
 
 .produce {
   display: grid;
   row-gap: 20px;
+  text-align: center;
+  margin: auto;
 }
 
 .produce-container {
@@ -54,6 +58,7 @@
   line-height: 40px;
   border: 4px outset white;
   text-align: center;
+  margin: auto;
 }
 
 .season {

@@ -37,14 +37,18 @@ const renderMovie = (data) => {
         </div>
       </div>
       <div className="production">
-        <p>
-          Production:
+        <p style={{ color: "red" }}> Production:</p>
+        <div className="produce">
           {data.production_companies
             ? data.production_companies.map((produce) => {
-                return <p className="product"> {produce.name} </p>;
+                return (
+                  <div className="produce-container" key={produce.id}>
+                    {produce.name}
+                  </div>
+                );
               })
-            : ""}
-        </p>
+            : false}
+        </div>
       </div>
       <div className="backdrop">
         {data.backdrop_path ? (
